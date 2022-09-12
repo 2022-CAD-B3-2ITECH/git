@@ -7,53 +7,45 @@ A faire une seule fois, puis à nouveau lors de la mise à jour des informations
 - `git config –global user.name ‘Glodie Tshimini’`
 - `git config –global user.email ‘contact@tshimini.fr’`
 
-## Initialisation d'un dépôt git local et liaison avec un dépôt distant
+## Initialisation d'un dépôt git et lien avec un dépôt distant
 
 Ci-après, remplacer {URL} par l'URL de votre dépôt distant.
 
-2. Initialiser un dépôt git : (à faire une seule fois, pas nécessaire lorsqu'on a cloné un projet depuis un dépôt distant)
+2. Initialiser un dépôt git : (à faire une seule fois, pas nécessaire lorsqu'on a cloné un dépôt distant en local)
 - `git init`
 
-3. Faire le lien entre le dépôt local et le dépôt distant : (à faire une seule fois, refaire lorsque vous avez changé de dépôt distant ou d'hébergeur git)
+3. Relier un dépôt local avec un dépôt distant : (à faire une seule fois, refaire lorsque vous avez changé de dépôt ou d'hébergeur git)
 - `git remote add origin {URL}`
 `origin` est l'alias qu'on donne à notre URL, cette alias sert à faire référence à URL (plus facile de retenir origin que votre URL pour vos manipulations futures).
 Par convention l'alias se nomme `origin` mais si on le souhaite on peut le nommer comme on l'entend.
 
-4. Cloner un dépôt distant en local (avec cette commande, pas besoin de refaire un `git init` pour initialiser le dépôt en local)
+4. Cloner un dépôt distant en local
 - `git clone {URL}`
 
 ## Les branches
 
-### Principe
-
-Les branches servent à avoir et travailler sur plusieurs versions du même projet sans devoir dupliquer les fichiers.
-
-### Commandes de manipulation des branches
-
 5. Renommer une branche
 - `git branch -m oldname newname`
-Exemple du renommage de la branche master en main :
+Exemple pour le renommage de la branche master en main :
 - `git branch -m master main`
 
-6. Créer une branche (on ne peut pas créer une nouvelle branche tant qu'il n'y a pas au moins un commit sur notre dépôt git) :
+6. Créer une branche (on ne peut pas créer une nouvelle branche tant qu'il n'y a pas au moins un commit sur notre dépôt) :
 - `git branch newBranch`
 
 7. Se déplacer dans une branche pour y travailler :
 - `git checkout newBranch`
 
-8. Créer et se déplacer dans la nouvelle branche pour y travailler :
+8. Créer et se déplacer dans la nouvelle branche pour y travailler sur une nouvelle version du projet :
 - `git checkout -b anotherNewBranch`
 
-### Commandes pour fusionner les branches
+### Fusionnez les branches
 
-9. Fusionner 2 branches A et B.
-Ci-après A est la branche de réception et B est la branche source d'ou proviennent les modifications à intégrer dans la branche A.
-Toujours se positionner d'abord sur la branche de réception avant de faire la fusion) :
+9.	Fusionner 2 branches A et B (ci-après B est la branche source et A la branche de réception, toujours se positionner d'abord sur la branche de réception avant de faire la fusion) :
 - `git checkout A`
 - `Git merge B`
 Le travail effectué sur la branche B sera rajouté dans la branche A.
 
-### Gestion des conflits
+#### Gestion des conflits
 
 Durant les fusions, les conflits peuvent avoir lieu.
 
@@ -62,7 +54,7 @@ Un conflit a lieu :
 - Lorsque vous avez effectué des modifications sur le même fichier au même endroit dans les 2 branches.
 
 Pour résoudre le conflit :
-- Choisir une version du fichier (version de la branche A, version de la branche B,  ou une résultante des 2 branches) ;
+- Choisir une version du fichier (version de la branche A, version de la branche B, une résultante des 2 branches etc.) ;
 - Effectuer un commit.
 
 ## État du dépôt
@@ -83,7 +75,7 @@ Sert à dire à git qu'on vient de passer à une nouvelle version de son projet.
 - `git commit -m "first commit"`
 
 13. Ajouter un commit :
-- `git commit -m "reason(s) for your modifications"`
+- `git commit -m "here message = reason(s) for your modifications"`
 
 ### Historiques des commits
 
@@ -96,14 +88,14 @@ Sert à dire à git qu'on vient de passer à une nouvelle version de son projet.
 - `git push origin main`
 `origin` est l'alias de l'URL de notre dépôt distant.
 
-## Récupérer les modifications effectuées depuis le dépôt distant vers dépôt local (tirer)
+## Récupérer les modifications effectuées depuis le dépôt distant dans votre dépôt local (tirer)
 
 16.	Récupérer les modifications sans fusionner (par exemple récupérer les branches crées sur GitHub) :
 - `git fetch`
 
 17.	Récupérer les modifications depuis le dépôt distant (GitHub vers local) :
 - `git pull origin main`
-`pull` = `fetch` + `merge`
+- `pull` = `fetch` + `merge`
 
 ## Différences entre 2 commits
 
