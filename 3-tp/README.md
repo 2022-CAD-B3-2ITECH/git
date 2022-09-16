@@ -119,7 +119,7 @@ Depuis l'onglet issue
 ![1](img/jpg/morning1.jpg)
 ![2](img/jpg/morning2.jpg)
 
-3. En local, créez une nouvelle branche portant le même que l' *issue* à l'aide de la commande suivante.
+3. En local, créez une nouvelle branche portant le même nom que l' *issue* à l'aide de la commande suivante.
 ![3](img/png/morning3.png)
 
 PS : vous pouvez également utilisé la commande suivante : `git checkout -b feature/morning_menu --track origin feature/morning_menu`
